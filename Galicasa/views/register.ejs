@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galicasa</title>
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+    <%- include('./modules/links') %>
+  </head>
+  <body>
+    <header><%- include('./modules/navbar') %></header>
+    <main class="d-flex justify-content-center align-items-center">
+      <div
+        class="container-xxl d-flex justify-content-center align-items-center"
+      >
+        <div class="logbox">
+          <button
+            type="button"
+            class="btn btlog col-md-6"
+            onclick="window.location.href='/realestate/login'"
+          >
+            Acceder
+          </button>
+          <button
+            type="button"
+            class="btn btreg col-md-6 active"
+            onclick="window.location.href='/realestate/register'"
+          >
+            Registrarse
+          </button>
+          <form
+            class="row g-3"
+            action="/realestate/register"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="inputEmail4"
+                name="email"
+              />
+              <span style="color: red; font-size: 12px"
+                ><%= typeof message2 != 'undefined' ? message2 : null %></span
+              >
+            </div>
+            <div class="col-md-6">
+              <label for="inputPassword4" class="form-label">Contraseña</label>
+              <input
+                type="password"
+                class="form-control"
+                id="inputPassword4"
+                name="password"
+              />
+              <span style="color: red; font-size: 12px"
+                ><%= typeof message3 != 'undefined' ? message3 : null %></span
+              >
+            </div>
+            <div class="col-md-6">
+              <label for="inputName" class="form-label">Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputName"
+                placeholder="Nombre de la inmobilaria"
+                name="name"
+              />
+              <span style="color: red; font-size: 12px"
+                ><%= typeof message1 != 'undefined' ? message1 : null %></span
+              >
+            </div>
+            <div class="col-md-6">
+              <label for="inputPhone" class="form-label">Teléfono</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputPhone"
+                placeholder="Tlf. Number"
+                name="phone"
+              />
+              <span style="color: red; font-size: 12px"
+                ><%= typeof message4 != 'undefined' ? message4 : null %></span
+              >
+            </div>
+            <div class="col-12">
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label"
+                  >Sobre nosotros</label
+                >
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                  maxlength="255"
+                  name="about"
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-12"></div>
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Imagen de perfil</label>
+              <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                name="img"
+              />
+            </div>
+            <p class="text-center">
+              Si ya estás registrado <a href="/realestate/login">accede aquí</a>
+            </p>
+            <div class="col-12 text-center">
+              <button type="submit" class="btn">Registrarse</button>
+              <button
+                type="button"
+                class="btn"
+                onclick="window.location.href='/'"
+              >
+                Cancelar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer><%- include('./modules/footer') %></footer>
+  </body>
+</html>

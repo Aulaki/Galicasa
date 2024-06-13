@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galicasa</title>
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+    <%- include('./modules/links') %>
+  </head>
+  <body>
+    <header><%- include('./modules/navbar') %></header>
+    <main class="d-flex justify-content-center align-items-center">
+      <div
+        class="container-xxl d-flex justify-content-center align-items-center"
+      >
+        <div class="logbox">
+          <button
+            type="button"
+            class="btn btlog col-md-6 active"
+            onclick="window.location.href='/realestate/login'"
+          >
+            Acceder
+          </button>
+          <button
+            type="button"
+            class="btn btreg col-md-6"
+            onclick="window.location.href='/realestate/register'"
+          >
+            Registrarse
+          </button>
+          <form class="row g-3" action="/realestate/login" method="post">
+            <div class="col-md-6 offset-md-3">
+              <label for="inputEmail4" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="inputEmail4"
+                name="email"
+              />
+              <span style="color: red; font-size: 12px"
+                ><%= typeof message != 'undefined' ? message : null %></span
+              >
+            </div>
+            <div class="col-md-6 offset-md-3">
+              <label for="inputPassword4" class="form-label">Contraseña</label>
+              <input
+                type="password"
+                class="form-control"
+                id="inputPassword4"
+                name="password"
+              />
+              <span style="color: red; font-size: 12px"
+                ><%= typeof message != 'undefined' ? message : null %></span
+              >
+            </div>
+            <p class="text-center">
+              Si todavia no tienes cuenta
+              <a href="/realestate/register">registrate aquí</a>
+            </p>
+            <div class="col-12 text-center">
+              <button type="submit" class="btn">Acceder</button>
+              <button
+                type="button"
+                class="btn"
+                onclick="window.location.href='/'"
+              >
+                Cancelar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer><%- include('./modules/footer') %></footer>
+  </body>
+</html>

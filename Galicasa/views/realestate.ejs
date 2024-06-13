@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galicasa</title>
+    <link rel="stylesheet" href="/stylesheets/realestate.css" />
+    <%- include('./modules/links') %>
+  </head>
+  <body>
+    <header><%- include('./modules/navbar') %></header>
+    <main>
+      <div class="container-xxl">
+        <h1 class="text-center">NUESTROS COLABORADORES</h1>
+        <div
+          class="d-flex justify-content-around align-content-center flex-wrap gap-4"
+        >
+          <% result.forEach((elem) => { %>
+          <div class="card text-center">
+            <img
+              src="/images/realestate/<%= !elem.avatar ? 'generic.jpg' : elem.avatar %>"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title"><%= elem.username %></h5>
+              <p class="card-text"><%= elem.biography %></p>
+            </div>
+            <div>
+              <i class="bi bi-plus-square" onclick="window.location.href='/realestate/view/<%= elem.realestate_id %>'"></i>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </main>
+    <footer><%- include('./modules/footer') %></footer>
+  </body>
+</html>

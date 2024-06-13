@@ -1,0 +1,51 @@
+.relative {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.imgbox, .infobox {
+  width: 500px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.imgbox img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 20px;
+}
+
+.imgbox p{
+  padding: 20px;
+}
+
+.imgbox{
+  translate: -50% -30%;
+}
+
+.infobox{
+  translate: 0 -130%;
+  padding: 20px;
+}
+
+@media (width <=1024px) {
+  .imgbox, .infobox , .relative{
+    position: static;
+    translate:initial;
+  }
+  .relative{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (width <=550px) {
+  .imgbox, .infobox , .relative{
+width: 100%;
+  }
+}

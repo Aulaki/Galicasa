@@ -1,0 +1,39 @@
+.section1, .section2{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.card{
+  position: relative;
+}
+.sold{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: 1;
+}
+.sold img{
+  width: 50%;
+}
+
+.realestatebox{
+  width: 50%;
+  background-color: #ffffff;
+  border-radius: 20px;
+ 
+}
+
+.realestatebox img{
+  width: 100%;
+}
+
+.info{
+  width: 100%;
+  padding: 15px;
+}
+
+@media (width <=640px) {
+  .realestatebox{
+    width: 100%;
+  }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galicasa</title>
+    <link rel="stylesheet" href="/stylesheets/adminrealestate.css" />
+    <%- include('./modules/links') %>
+  </head>
+  <body>
+    <header><%- include('./modules/navbarlog') %></header>
+    <main>
+      <div class="container-xxl">
+        <section class="section1 d-flex justify-content-center align-items-center">
+          <div class="realestatebox">
+            <img
+              src="/images/realestate/<%= !realestate.avatar ? 'generic.jpg' : realestate.avatar %>"
+              alt="..."
+            />
+            <div class="info">
+              <h2 class="text-center"><%= realestate.username %></h2>
+              <p><%= realestate.biography %></p>
+              <div class="d-flex justify-content-between">
+                <p><%= realestate.email %></p>
+                <p><%= realestate.phone %></p>
+              </div>
+          </div>
+
+            
+
+          </div>
+        </section>
+        <section class="section2">
+          <button
+            class="btn"
+            onclick="window.location.href='/property/new/<%= realestate.id %>'"
+          >
+            <i class="bi bi-house-add"></i>
+          </button>
+          <div class="cardbox d-flex justify-content-around align-content-center flex-wrap gap-4">
+            <% if(realestate.properties){ %> <%
+            realestate.properties.forEach((property) => { %>
+            <div class="card" style="width: 18rem">
+              <img
+                src="/images/property/<%= !property.photo ? 'generic.jpg' : property.photo %>"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <h5 class="card-title"><%= property.address %></h5>
+                  <p class="card-text"><%= property.area %> m²</p>
+                </div>
+                <h6 class="card-subtitle mb-2 text-body-secondary text-start">
+                  <%= property.city %>
+                </h6>
+                <div class="text-end">
+                  <% if(!property.discount){ %>
+                  <span><%= property.price %>€</span>
+                  <% } else{ %>
+                  <div class="d-flex justify-content-between">
+                    <span class="text-decoration-line-through"
+                      ><%= property.price %>€</span
+                    >
+                    <span
+                      ><%= (property.price - (property.price * property.discount
+                      /100)) %>€</span
+                    >
+                  </div>
+                  <% } %>
+                </div>
+                <p class="card-text"><%= property.description %></p>
+
+                <div class="text-center">
+                  <% if(!property.sold){ %>
+                  <button
+                    class="btn"
+                    onclick="window.location.href='/property/sold/<%= property.property_id %>'"
+                  >
+                    <i class="bi bi-house-lock"></i>
+                  </button>
+                  <button
+                    class="btn"
+                    onclick="window.location.href='/property/edit/<%= property.property_id %>'"
+                  >
+                    <i class="bi bi-house-gear"></i>
+                  </button>
+                  <% } %>
+                  <button
+                    class="btn"
+                    onclick="window.location.href='/property/delete/<%= property.property_id %>'"
+                  >
+                    <i class="bi bi-house-slash"></i>
+                  </button>
+                </div>
+                <% if(property.sold){ %>
+                  <div class="sold"><img src="/images/Vendido.webp" alt="" /></div>
+                  <% } %>
+              </div>
+            </div>
+            <% })} %>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer><%- include('./modules/footer') %></footer>
+  </body>
+</html>

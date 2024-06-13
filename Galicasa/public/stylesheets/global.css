@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+section{
+  padding-top: 30px;
+  width: 100%;
+}
+
+main {
+  min-height: 77.5vh;
+  background-color: #f0f4f9;
+}
+
+nav {
+  background-color: #ffffff;
+}
+
+.logo img {
+  width: 50px;
+}
+
+header {
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+}
+
+.btndrop {
+  border: none !important;
+}
+
+.ilogin {
+  font-size: 30px;
+  margin-right: 15px;
+}
+.ilogin:hover {
+  scale: 1.5;
+}
+
+.btn {
+  background-color: #ffffff;
+  border: 1px solid black;
+  margin: 5px;
+}
+
+.btn:active,
+.btn:hover {
+  box-shadow: 0 0 2px 1px inset;
+}
+
+.card {
+  width: 300px;
+}
+.card img {
+  aspect-ratio: 16 / 9;
+}
+
+button{
+  margin-top: 10px;
+}

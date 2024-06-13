@@ -1,0 +1,23 @@
+.dbtn{
+  position: sticky;
+  left: 0;
+  top:10%;
+}
+
+.btn{
+  border: none !important;
+}
+
+.btn-group{
+  margin-bottom: 20px;
+}
+.cardbox{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+@media (width <=425px){
+  .bth{
+   display: none !important;
+  }
+}

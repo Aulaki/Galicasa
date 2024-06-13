@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galicasa</title>
+    <link rel="stylesheet" href="/stylesheets/newproperty.css" />
+    <%- include('./modules/links') %>
+  </head>
+  <body>
+    <header><%- include('./modules/navbarlog') %></header>
+    <main class="d-flex justify-content-center align-items-center">
+      <div class="container-xxl">
+        <div class="formbox">
+          <form
+            class="row g-3"
+            action="/property/new/<%= id %>"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <div class="col-md-12">
+              <label for="inputAddress" class="form-label">Dirección</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputAddress"
+                placeholder="1234 Main St"
+                name="address"
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="inputCity" class="form-label">Concello</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputCity"
+                name="city"
+              />
+            </div>
+            <div class="col-md-3">
+              <label for="inputArea" class="form-label"
+                >Metros construidos</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="inputArea"
+                name="area"
+              />
+            </div>
+            <div class="col-md-3">
+              <label for="inputYear" class="form-label"
+                >Año de construcción</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="inputYear"
+                name="year"
+              />
+            </div>
+            <div class="col-md-3">
+              <label for="inputPrice" class="form-label">Precio</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputPrice"
+                name="price"
+              />
+            </div>
+            <div class="col-12">
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label"
+                  >Información adicional</label
+                >
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                  maxlength="255"
+                  name="about"
+                ></textarea>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="formFile" class="form-label"
+                >Default file input example</label
+              >
+              <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                name="img"
+              />
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn">Registrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer><%- include('./modules/footer') %></footer>
+  </body>
+</html>

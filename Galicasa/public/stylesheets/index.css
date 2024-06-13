@@ -1,0 +1,36 @@
+.pbox{
+  width: 80%;
+  aspect-ratio: 16/9;
+  background-image: url(/images/principal.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.pboxsub{
+  width: 40%;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  
+}
+
+h1{
+  padding: 20px;
+}
+
+@media (width <=1440px) {
+  .pboxsub {
+   width: 100%;
+  }
+}
+@media (width <=730px) {
+  .pboxsub, .pbox{
+   width: 100%;
+  }
+  .pbox{background-image: none;}
+}

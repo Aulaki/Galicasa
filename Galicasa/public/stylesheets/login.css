@@ -1,0 +1,48 @@
+.logbox {
+  width: 40%;
+  background-color: #ffffff;
+
+  border-radius: 0 0 20px 20px;
+  padding: 25px;
+  position: relative;
+}
+
+.btlog,
+.btreg {
+  position: absolute;
+  width: 50%;
+  margin: 0 !important;
+  border: none !important;
+  top: 0;
+  translate: 0 -100%;
+}
+
+.btlog {
+  left: 0;
+  border-radius: 20px 0 0 0 !important;
+}
+
+.btreg {
+  right: 0;
+  border-radius: 0 20px 0 0 !important;
+}
+
+.active {
+  background-color: #1a73e8 !important;
+  color: #ffffff !important;
+}
+
+@media (width <=992px) {
+  .logbox {
+    width: 70%;
+  }
+}
+main{
+  padding-top: 40px;
+}
+
+@media (width <=425px) {
+  .logbox {
+    width: 100%;
+  }
+}

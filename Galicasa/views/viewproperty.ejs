@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galicasa</title>
+    <link rel="stylesheet" href="/stylesheets/viewproperty.css">
+    <%- include('./modules/links') %>
+  </head>
+  <body>
+    <header><%- include('./modules/navbar') %></header>
+    <main class="relative">
+          <div class="imgbox">
+            <img src="/images/property/<%= !property.photo ? 'generic.jpg' : property.photo %>" alt="">
+            <p><%= property.address %>, <%= property.city %></p>
+          </div>
+          <div class="infobox">
+            <h2>Información</h2>
+            <div class="text-end">
+              <% if(!property.discount){ %>
+                <span><%= property.price %>€</span>
+              <% } else{ %>
+                <div class="d-flex justify-content-between">
+              <span class="text-decoration-line-through"><%= property.price %>€</span>
+              <span><%= (property.price - (property.price * property.discount /100)) %>€</span>
+            </div>
+                <% } %>
+            </div>
+            <div class="d-flex justify-content-between">
+            <p>Año de construcción: <%= property.construction_year %></p>
+            <p><%= property.area %> m²</p>
+          </div>
+            <p><%= property.description %></p>
+          </div>
+    </main>
+    <footer><%- include('./modules/footer') %></footer>
+  </body>
+</html>

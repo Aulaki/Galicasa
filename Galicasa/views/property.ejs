@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galicasa</title>
+  <link rel="stylesheet" href="/stylesheets/property.css">
+  <%- include('./modules/links') %>
+</head>
+<body>
+  <header><%- include('./modules/navbar') %></header>
+  <main>
+
+    <button class="btn dbtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <i class="bi bi-list-check"></i>
+    </button>
+    
+    <form action="/property" method="get">
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Búsqueda por concello </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            Selecciona los concellos de los que desea ver inmuebles
+          </div>
+      
+          <div class="dropdown mt-3">
+            <p class="d-inline-flex gap-1">
+              <a class="btn" data-bs-toggle="collapse" href="#collapseAcoruna" role="button" aria-expanded="false" aria-controls="collapseAcoruna">
+                A Coruña
+              </a>
+            </p>
+            <div class="collapse" id="collapseAcoruna">
+      
+              <% for(let i=0;i < result.length && result[i].province_id == 1; i++) { %>
+                <% if(result[i].province_id == 1){ %>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="<%= result[i].city_id %>" id="flexCheckDefault" name="city">
+                <label class="form-check-label" for="flexCheckDefault">
+                  <%= result[i].city %>
+                </label>
+              </div>
+              <% }} %>
+            </div>
+          </div>
+      
+      
+          <div class="dropdown mt-3">
+            <p class="d-inline-flex gap-1">
+              <a class="btn" data-bs-toggle="collapse" href="#collapseLugo" role="button" aria-expanded="false" aria-controls="collapseLugo">
+                Lugo
+              </a>
+            </p>
+            <div class="collapse" id="collapseLugo">
+      
+              <%for(let i=0;i < result.length; i++) { %>
+                <% if(result[i].province_id == 2){ %>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="<%= result[i].city_id %>" id="flexCheckDefault" name="city">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <%= result[i].city %>
+                    </label>
+                  </div>
+              <% }} %>
+            </div>
+          </div>
+      
+      
+      
+      
+          <div class="dropdown mt-3">
+            <p class="d-inline-flex gap-1">
+              <a class="btn" data-bs-toggle="collapse" href="#collapseOurense" role="button" aria-expanded="false" aria-controls="collapseOurense">
+                Ourense
+              </a>
+            </p>
+            <div class="collapse" id="collapseOurense">
+      
+      
+              <%for(let i=0;i < result.length; i++) { %>
+                <% if(result[i].province_id == 3){ %>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="<%= result[i].city_id %>" id="flexCheckDefault" name="city">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <%= result[i].city %>
+                    </label>
+                  </div>
+              <% }} %>
+            </div>
+          </div>
+      
+      
+      
+          <div class="dropdown mt-3">
+            <p class="d-inline-flex gap-1">
+              <a class="btn" data-bs-toggle="collapse" href="#collapsePontevedra" role="button" aria-expanded="false" aria-controls="collapsePontevedra">
+                Pontevedra
+              </a>
+            </p>
+            <div class="collapse" id="collapsePontevedra">
+      
+      
+              <%for(let i=0;i < result.length; i++) { %>
+                <% if(result[i].province_id == 4){ %>
+                  
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="<%= result[i].city_id %>" id="flexCheckDefault" name="city">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <%= result[i].city %>
+                    </label>
+                  </div>
+              <% }} %>
+            </div>
+          </div>
+      </div>
+      <button class="btn">Buscar</button>
+      </div>
+
+
+<section class="container-xl">
+  <div class="btnbox d-flex justify-content-around align-content-center ">          
+
+      <div class="btn-group" role="group">  
+      <button type="submit" class="btn bth" name="orderby" value="<%= city_id %>_area ASC">m² ⭡</button>
+      <button type="submit" class="btn bth" name="orderby" value="<%= city_id %>_area DESC">m² ⭣</button>
+      <button type="submit" class="btn bth" name="orderby" value="<%= city_id %>_price ASC">Price ⭡</button>
+      <button type="submit" class="btn bth" name="orderby" value="<%= city_id %>_price DESC">Price ⭣</button>
+      <button type="submit" class="btn" name="orderby" value="<%= city_id %>_insertdata ASC">Antiguos</button>
+      <button type="submit" class="btn" name="orderby" value="<%= city_id %>_insertdata DESC">Nuevos</button>
+    </div>
+    </form>
+  </div>
+
+<div class="cardbox d-flex justify-content-around align-content-center flex-wrap gap-4">
+  <% realestate.properties.forEach((property) => { %>
+    <div class="card text-center" style="width: 18rem;">
+     <img
+     src="/images/property/<%= !property.photo ? 'generic.jpg' : property.photo %>"
+     class="card-img-top"
+     alt="..."
+   />
+       <div class="card-body">
+   
+   
+           <div class="d-flex justify-content-between">
+             <h5 class="card-title"><%= property.address %></h5> <p class="card-text"><%= property.area %> m²</p>
+           </div>
+           <h6 class="card-subtitle mb-2 text-body-secondary text-start"><%= property.city %></h6>
+   
+         <div class="text-end">
+           <% if(!property.discount){ %>
+             <span><%= property.price %>€</span>
+           <% } else{ %>
+             <div class="d-flex justify-content-between">
+           <span class="text-decoration-line-through"><%= property.price %>€</span>
+           <span><%= (property.price - (property.price * property.discount /100)) %>€</span>
+         </div>
+             <% } %>
+         </div>
+           <i class="bi bi-plus-square" onclick="window.location.href='/property/view/<%= property.property_id %>'"></i>
+         
+       </div>
+     </div>
+     <% }) %>
+</div>
+
+</section>
+</main>
+<footer><%- include('./modules/footer') %></footer>
+  
+</body>
+</html>
